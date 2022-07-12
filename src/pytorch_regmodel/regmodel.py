@@ -6,15 +6,15 @@ from sklearn.metrics import roc_auc_score
 
 class RegModel(torch.nn.Module):
 
-    def __init__(self, input_size, hidden_size1, hidden_size2): #, hidden_size3):
+    def __init__(self, input_size, hidden_size1, hidden_size2, dropout1=0.5, dropout2=0.5): #, hidden_size3):
         super(RegModel, self).__init__()
         self.layers = torch.nn.Sequential(
             torch.nn.Linear(in_features=input_size, out_features=hidden_size1),
             torch.nn.ReLU(),
-            torch.nn.Dropout(p=0.5),
+            torch.nn.Dropout(p=dropout1),
             torch.nn.Linear(in_features=hidden_size1, out_features=hidden_size2),
             torch.nn.ReLU(),
-            torch.nn.Dropout(p=0.5),
+            torch.nn.Dropout(p=dropout2),
 #            torch.nn.Linear(in_features=hidden_size2, out_features=hidden_size3),
 #            torch.nn.ReLU(),
 #            torch.nn.Dropout(p=0.5),
