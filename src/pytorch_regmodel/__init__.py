@@ -1,4 +1,4 @@
-from .pytorch_regmodel import Signaturizer, SignaturizerResult
+from .pytorch_regmodel import RegModel
 
 __author__ = """Nils Kurzawa"""
 __email__ = 'nilskurzawa@gmail.com'
