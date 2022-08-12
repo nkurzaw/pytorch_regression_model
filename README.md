@@ -1,1 +1,1 @@
-# pytorch_regression_model
+# Simple pytorch regression model
