@@ -15,9 +15,6 @@ class RegModel(torch.nn.Module):
             torch.nn.Linear(in_features=hidden_size1, out_features=hidden_size2),
             torch.nn.ReLU(),
             torch.nn.Dropout(p=dropout2),
-#            torch.nn.Linear(in_features=hidden_size2, out_features=hidden_size3),
-#            torch.nn.ReLU(),
-#            torch.nn.Dropout(p=0.5),
             torch.nn.Linear(in_features=hidden_size2, out_features=1)
         )
 
@@ -34,10 +31,10 @@ class RegModel(torch.nn.Module):
 
 class PrepareData(torch.utils.data.Dataset):
 
-    def __init__(self, X, y, weight=None):#, scale_X=True):
+    def __init__(self, X, y, weight=None, scale_X=False):
         if not torch.is_tensor(X):
-            #if scale_X:
-            #    X = StandardScaler().fit_transform(X)
+            if scale_X:
+                X = StandardScaler().fit_transform(X)
             self.X = torch.from_numpy(X)
         if not torch.is_tensor(y):
             self.y = torch.from_numpy(y)
