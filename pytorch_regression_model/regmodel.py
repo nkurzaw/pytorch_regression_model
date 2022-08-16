@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 
 class RegModel(torch.nn.Module):
 
-    def __init__(self, input_size, hidden_size1, hidden_size2, dropout1=0.5, dropout2=0.5): #, hidden_size3):
+    def __init__(self, input_size, hidden_size1, hidden_size2, dropout1=0.5, dropout2=0.5):
         super(RegModel, self).__init__()
         self.layers = torch.nn.Sequential(
             torch.nn.Linear(in_features=input_size, out_features=hidden_size1),
